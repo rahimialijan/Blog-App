@@ -132,7 +132,7 @@ To run the project, execute the following command:
 
 ### Run tests
 
-To run tests, run the following command:
+To run tests, run the following commands:
 
 ```sh
   rspec test
@@ -145,6 +145,10 @@ To run tests, run the following command:
 ## 👥 Authors <a name="authors"></a>
 
 👤 **Alijan Rahimi**
+
+- GitHub: [@Alijan-Rahimi](https://github.com/rahimialijan)
+- Twitter: [@AlijanRahimi10](https://twitter.com/AlijanRahimi10)
+- LinkedIn: [Alijan-Rahimi](https://www.linkedin.com/in/alijan-rahimi-18389ab3)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
