@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_08_22_184514) do
+ActiveRecord::Schema[7.0].define(version: 2023_08_23_151802) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -18,8 +18,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_22_184514) do
     t.bigint "author_id_id", null: false
     t.bigint "post_id", null: false
     t.text "text"
-    t.datetime "create_at", default: -> { "CURRENT_TIMESTAMP" }
-    t.datetime "update_at", default: -> { "CURRENT_TIMESTAMP" }
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["author_id_id"], name: "index_comments_on_author_id_id"
@@ -29,8 +27,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_22_184514) do
   create_table "likes", force: :cascade do |t|
     t.bigint "author_id_id", null: false
     t.bigint "post_id", null: false
-    t.datetime "create_at", default: -> { "CURRENT_TIMESTAMP" }
-    t.datetime "update_at", default: -> { "CURRENT_TIMESTAMP" }
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["author_id_id"], name: "index_likes_on_author_id_id"
@@ -52,8 +48,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_22_184514) do
     t.string "name"
     t.string "photo"
     t.text "bio"
-    t.datetime "create_at", default: -> { "CURRENT_TIMESTAMP" }
-    t.datetime "update_at", default: -> { "CURRENT_TIMESTAMP" }
     t.integer "post_counter"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
