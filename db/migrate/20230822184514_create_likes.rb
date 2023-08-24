@@ -6,7 +6,6 @@ class CreateLikes < ActiveRecord::Migration[7.0]
       t.datetime :create_at, default: -> { 'CURRENT_TIMESTAMP' }
       t.datetime :update_at, default: -> { 'CURRENT_TIMESTAMP' }, on_update: -> { 'CURRENT_TIMESTAMP' }
 
-
       t.timestamps
     end
   end
