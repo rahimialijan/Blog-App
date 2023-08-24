@@ -4,9 +4,7 @@ class CreateUsers < ActiveRecord::Migration[7.0]
       t.string :name
       t.string :photo
       t.text :bio
-      t.datetime :create_at, default: -> { 'CURRENT_TIMESTAMP' }
-      t.datetime :update_at, default: -> {'CURRENT_TIMESTAMP'}, on_update: -> { 'CURRENT_TIMESTAMP' }
-      t.integer :post_counter
+      t.integer :posts_counter
       t.timestamps
     end
   end
