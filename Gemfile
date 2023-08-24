@@ -5,7 +5,9 @@ ruby '3.2.2'
 
 gem 'pg'
 
-gem 'rspec-rails', '~> 5.0'
+group :development, :test do
+  gem 'rspec-rails', '~> 5.0'
+end
 
 gem 'rubocop', '>= 1.0', '< 2.0'
 
