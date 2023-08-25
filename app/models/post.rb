@@ -7,7 +7,15 @@ class Post < ApplicationRecord
     author.update(post_counter: author.posts.count)
   end
 
+  validates_presence_of :title
+
+  validates_length_of :title, maximum: 250
+
+  validates :comments_counter, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
+
+  validates :likes_counter, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
+
   def recent_comments(limit = 5)
-    comments.order(create_at: :desc).limit(limit)
+    comments.order(created_at: :desc).limit(limit)
   end
 end
