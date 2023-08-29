@@ -5,8 +5,8 @@ ruby '3.2.2'
 
 gem 'pg'
 
-gem 'rubocop', '>= 1.0', '< 2.0'
 gem 'rails-controller-testing'
+gem 'rubocop', '>= 1.0', '< 2.0'
 
 gem 'factory_bot_rails'
 
