@@ -5,7 +5,10 @@ ruby '3.2.2'
 
 gem 'pg'
 
+gem 'rails-controller-testing'
 gem 'rubocop', '>= 1.0', '< 2.0'
+
+gem 'factory_bot_rails'
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem 'rails', '~> 7.0.7'
