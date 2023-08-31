@@ -1,8 +1,13 @@
 <div class="container d-flex flex-column justify-content-center align-items-center bg-light border rounded py-4 post_summary post-content">
-  <h2 class="col-lg-6 col-md-12 post_title"> Post # <%= post.user_post_sequence %> </h2>
-  <p class="col-lg-6 col-md-12 post_text"><%= truncate(post.text, length: 250, omission: "...") %></p>
-  <div class="col-lg-6 col-md-12 d-flex align-self-end">
-    <p class="mx-2">Comments: <%= post.comments.count || 0 %></p>
-    <p class="mx-2">Likes: <%= post.likes.count || 0 %></p>
+  <%= link_to user_post_path(post.author.id, post.id) do %>
+    <h2>Post # <%= post.user_post_sequence %> </h2>
+  <% end %>
+  <p><%= truncate(post.text, length: 250, omission: "...") %></p>
+  <div class="d-flex align-self-end">
+    <p class="mx-2"><%= link_to new_user_post_comment_path(user_id: post.author_id, post_id: post.id) do %>Comments: <%= post.comments.count || 0 %><% end %></p>
+      <p class="mx-2">Likes: <%= post.likes_counter || 0 %></p>
+    <%= form_with(model: [post, post.likes.build], url: user_post_likes_path(post.author, post), method: :post, class: 'like-form') do |form| %>
+      <%= form.submit "Like", class: "btn btn-primary" %>
+    <% end %>
   </div>
 </div>

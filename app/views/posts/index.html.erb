@@ -1,11 +1,10 @@
 <h1>Posts for a User</h1>
-
-<section class="container d-flex flex-column mx-auto my-3 mx-5 p-5 border rounded border-success">
+<section>
 <%= render partial: "shared/user_partial", locals: { user: @user || "No user found" } %>
 <% @posts.each do |post| %>
-  <a href="<%= user_post_path(user_id: post.author.id, id: post.id) %>" class="list-group-item list-group-item-action mt-3">
+  <span class="list-group-item list-group-item-action mt-3">
     <%= render partial: 'shared/post_partial', locals: { post: post } %>
-  </a>
+  </span>
   <div class="container bg-light border rounded mt-3">
     <% post.recent_comments.each do |comment| %>
       <%= render partial: 'shared/recent_comment_partial', locals: { comment: comment } %>

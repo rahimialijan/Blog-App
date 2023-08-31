@@ -1,3 +1,9 @@
 .post-content:hover {
   color: black;
 }
+
+
+.border-success{
+  border: 2px solid;
+  padding: 20%;
+}
