@@ -18,4 +18,8 @@ class Post < ApplicationRecord
   def recent_comments(limit = 5)
     comments.order(created_at: :desc).limit(limit)
   end
+
+  def user_post_sequence
+    author.posts.where('id <= ?', id).count
+  end
 end
