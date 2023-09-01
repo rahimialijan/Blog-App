@@ -2,8 +2,29 @@
   color: black;
 }
 
+.user_img{
+  width: 30px;
+  height: 30px;
+  display: flex;
+}
+.user-img-content{
+  width: 50%;
+  align-self:center;
+  border-radius: 20%;
+}
 
 .border-success{
   border: 2px solid;
   padding: 20%;
+}
+
+.like-counter{
+  margin-left: 8px;
+}
+
+.bio-contianer{
+  margin-bottom: 12px;
+}
+.post-content{
+  margin-bottom: 12px;
 }

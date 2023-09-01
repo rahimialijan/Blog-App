@@ -2,10 +2,10 @@
 <section>
 <%= render partial: "shared/user_partial", locals: { user: @user || "No user found" } %>
 <% @posts.each do |post| %>
-  <span class="list-group-item list-group-item-action mt-3">
+  <div class="container bg-light border rounded mt-3">
+  <span >
     <%= render partial: 'shared/post_partial', locals: { post: post } %>
   </span>
-  <div class="container bg-light border rounded mt-3">
     <% post.recent_comments.each do |comment| %>
       <%= render partial: 'shared/recent_comment_partial', locals: { comment: comment } %>
     <% end %>

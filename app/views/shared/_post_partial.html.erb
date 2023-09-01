@@ -5,9 +5,11 @@
   <p><%= truncate(post.text, length: 250, omission: "...") %></p>
   <div class="d-flex align-self-end">
     <p class="mx-2"><%= link_to new_user_post_comment_path(user_id: post.author_id, post_id: post.id) do %>Comments: <%= post.comments.count || 0 %><% end %></p>
-      <p class="mx-2">Likes: <%= post.likes_counter || 0 %></p>
-    <%= form_with(model: [post, post.likes.build], url: user_post_likes_path(post.author, post), method: :post, class: 'like-form') do |form| %>
-      <%= form.submit "Like", class: "btn btn-primary" %>
-    <% end %>
+    <p class="mx-2">
+      <%= form_for([post, post.likes.build], url: user_post_likes_path(post.author, post), method: :post, html: { class: 'like-form' }) do |form| %>
+        <%= form.submit "Like" %>
+      <% end %>
+    </p>
+    <span class="like-counter"><%= post.likes_counter || 0 %></span>
   </div>
 </div>
