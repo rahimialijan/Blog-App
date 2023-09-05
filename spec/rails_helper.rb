@@ -63,7 +63,6 @@ RSpec.configure do |config|
   # config.filter_gems_from_backtrace("gem name")
 end
 
-
 require 'capybara/rspec'
 require 'selenium-webdriver'
 
