@@ -1,7 +1,24 @@
-<h2>Sign up</h2>
+<%= stylesheet_link_tag 'sign', media: 'all', 'data-turbolinks-track': 'reload' %>
 
+<h2>Sign up</h2>
+<section class="form-container">
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
+
+  <div class ="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name, autofocus:true , autocomplete: "name"%>
+  </div>
+
+  <div class ="field">
+    <%= f.label :bio %><br>
+    <%= f.text_field :bio, autofocus:true , autocomplete: "name"%>
+  </div>
+
+  <div class ="field">
+    <%= f.label :photo %><br>
+    <%= f.text_field :photo, autofocus:true , autocomplete: "name", pattern: "https?://.+",placeholder: "Enter the URL" %>
+  </div>
 
   <div class="field">
     <%= f.label :email %><br />
@@ -9,21 +26,26 @@
   </div>
 
   <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
+    <%= f.label :password %><br>
     <%= f.password_field :password, autocomplete: "new-password" %>
   </div>
 
+    <% if @minimum_password_length %>
+    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <% end %><br />
   <div class="field">
     <%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+  </div>
+
+  <div class ="field">
+    <%= f.label :posts_counter %><br />
+    <%= f.number_field :posts_counter, value: 0 , readonly: true %>
   </div>
 
   <div class="actions">
     <%= f.submit "Sign up" %>
   </div>
 <% end %>
-
 <%= render "devise/shared/links" %>
+</section>
