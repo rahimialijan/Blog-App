@@ -38,7 +38,7 @@ RSpec.describe 'User Index Page', type: :feature do
     end
 
     it 'shows the number of posts the user has written' do
-      expect(page).to have_content("Number of posts: 3") # Three posts in total
+      expect(page).to have_content('Number of posts: 3') # Three posts in total
     end
 
     it "shows the user's bio" do
