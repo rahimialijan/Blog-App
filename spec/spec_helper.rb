@@ -1,16 +1,4 @@
-require 'spec_helper'
-require 'capybara/rspec'
-require 'selenium-webdriver'
 
-# Configure Capybara to use Chrome
-Capybara.register_driver :chrome do |app|
-  options = Selenium::WebDriver::Chrome::Options.new
-  options.add_argument('--headless') # Run Chrome in headless mode (optional)
-  Capybara::Selenium::Driver.new(app, browser: :chrome, options: options)
-end
-
-Capybara.default_driver = :chrome
-Capybara.javascript_driver = :chrome # Enable JavaScript driver for JavaScript-dependent tests
 
 # See https://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 RSpec.configure do |config|
