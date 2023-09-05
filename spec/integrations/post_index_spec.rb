@@ -58,15 +58,15 @@ describe 'Post Index Page Features', type: :feature, js: true do
     expect(page).to have_content('Comments: 2')
   end
 
-  it 'can see how many likes a post has' do  
+  it 'can see how many likes a post has' do
     visit user_posts_path(@user1.id)
     post_titles = page.all('.post-summary h2').map(&:text)
     post_titles.each do |title|
-      post = Post.find_by(title: title)
+      post = Post.find_by(title:)
       expect(page).to have_content("Likes: #{post.likes_counter}")
     end
   end
-  
+
   it 'can see a section for pagination if there are more posts than fit on the view' do
     visit user_posts_path(@user1.id)
     expect(page).to have_button('Pagination')

@@ -44,7 +44,7 @@ RSpec.describe 'Posts Show', type: :feature do
       visit user_post_path(@user, @post.id)
       expect(page).to have_content('Comments: 3')
     end
-    
+
     it 'displays the post body' do
       visit user_post_path(@user, @post.id)
       expect(page).to have_content('Click on the button "New Post" and fill the form')
@@ -65,8 +65,8 @@ RSpec.describe 'Posts Show', type: :feature do
   describe 'Like button can increment the like number' do
     it 'displays the Like button' do
       visit user_post_path(@user, @post.id)
-      within(".like-form") do
-        expect(page).to have_button("Like")
+      within('.like-form') do
+        expect(page).to have_button('Like')
       end
     end
   end
