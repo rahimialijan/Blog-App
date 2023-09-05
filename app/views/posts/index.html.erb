@@ -1,7 +1,7 @@
 <h1>Posts for a User</h1>
 <section>
 <%= render partial: "shared/user_partial", locals: { user: @user || "No user found" } %>
-<% @posts.each do |post| %>
+<% @post.each do |post| %>
   <div class="container bg-light border rounded mt-3">
   <span >
     <%= render partial: 'shared/post_partial', locals: { post: post } %>

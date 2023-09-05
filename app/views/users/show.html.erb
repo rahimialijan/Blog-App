@@ -1,22 +1,22 @@
 <h1 class="mb-4">User Profile</h1>
 
 <section class="container">
-  <%= render partial: "shared/user_partial", locals: {user: @users || "No users found"} %>
-  <div class="container d-flex flex-column p-3 justify-content-center align-items-center bio-contianer bg-info border rounded py-4">
+  <%= render partial: "shared/user_partial", locals: { user: @user } %>
+  <div class="container d-flex flex-column p-3 justify-content-center align-items-center bio-container bg-info border rounded py-4">
     <h3 class="col-lg-6 col-md-12 mb-3">Bio:</h3>
-    <p class="col-lg-6 col-md-12 text-center"><%= @users.bio %></p>
+    <p class="col-lg-6 col-md-12 text-center"><%= @user.bio %></p>
   </div>
-  <div class="recent-post">
-    <% @recent_posts.each do |post| %>
-      <%= link_to user_post_path( post.author.id,  post.id) do %>
+  <div class="recent-post user-posts">
+    <% @user.recent_posts.each do |post| %>
+      <%= link_to user_post_path(post.author.id, post.id) do %>
         <%= render partial: 'shared/post_partial', locals: { post: post } %>
       <% end %>
     <% end %>
   </div>
-  <%= link_to user_posts_path(@users), class: "btn btn-success mt-3 align-self-center" do %>
+  <%= link_to user_posts_path(@user), class: "btn btn-success mt-3 align-self-center" do %>
     See all Posts
   <% end %>
-  <%= link_to new_user_post_path(@users), class: "btn btn-success mt-3 align-self-center" do %>
+  <%= link_to new_user_post_path(@user), class: "btn btn-success mt-3 align-self-center" do %>
     Add New Post
   <% end %>
-</section> 
+</section>
