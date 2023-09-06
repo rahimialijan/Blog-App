@@ -16,7 +16,7 @@
           </a>
           <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="#">Log-in</a></li>
-            <li><a class="dropdown-item" href="#">Sign-Up</a></li>
+            <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" href="#">Sign-out</a></li>
           </ul>
