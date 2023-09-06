@@ -1,12 +1,12 @@
 class PostsController < ApplicationController
+ 
   def index
-    @user = User.find(params[:user_id])
-    @post = @user.posts.includes(:comments, :likes).order(created_at: :asc)
+    @user = User.includes(:posts).find(params[:user_id])
+    puts "Current User: #{current_user.name} (Role: #{current_user.role})"
   end
 
   def show
-    @user = User.find(params[:user_id])
-    @post = @user.posts.find(params[:id])
+    @post = User.includes(posts: [:author]).find(params[:user_id]).posts.find(params[:id])
   end
 
   def new
@@ -26,6 +26,14 @@ class PostsController < ApplicationController
       render :new
     end
   end
+
+  def destroy
+    @user = current_user
+    @post = Post.find(params[:id])
+    @post.destroy
+    redirect_to user_posts_path(@user), notice: 'Post was successfully deleted.'
+  end
+
 
   private
 
