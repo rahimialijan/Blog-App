@@ -1,9 +1,11 @@
 class ApplicationController < ActionController::Base
-  before_action :set_current_user
+  before_action :authenticate_user!, :sign_up_allawed_parameters, if: :devise_controller?
 
-  private
+  protected
 
-  def set_current_user
-    @current_user = User.find_by(id: session[:user_id])
+  def sign_up_allawed_parameters
+    devise_parameter_sanitizer.permit(:sign_up) do |u|
+      u.permit(:name, :email, :password, :password_confirmation, :posts_counter)
+    end
   end
 end
