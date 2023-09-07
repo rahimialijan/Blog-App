@@ -6,7 +6,7 @@ class User < ApplicationRecord
   has_many :posts, foreign_key: 'author_id'
 
   def admin?
-    role=='admin'
+    role == 'admin'
   end
 
   validates_presence_of :name

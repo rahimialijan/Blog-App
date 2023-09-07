@@ -1,8 +1,6 @@
 class PostsController < ApplicationController
- 
   def index
     @user = User.includes(:posts).find(params[:user_id])
-    puts "Current User: #{current_user.name} (Role: #{current_user.role})"
   end
 
   def show
@@ -28,12 +26,14 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    @user = current_user
     @post = Post.find(params[:id])
-    @post.destroy
-    redirect_to user_posts_path(@user), notice: 'Post was successfully deleted.'
+    authorize! :destroy, @post # Check authorization
+    if @post.destroy
+      redirect_to user_posts_path(current_user), notice: 'Post was successfully deleted.'
+    else
+      redirect_to user_posts_path(current_user), alert: 'Unable to delete the post.'
+    end
   end
-
 
   private
 

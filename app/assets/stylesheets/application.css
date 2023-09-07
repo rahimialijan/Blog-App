@@ -27,15 +27,20 @@
 .post-content {
   margin-bottom: 12px;
 }
-.mx-2, .post-number, .like-form, .like-counter, .post-content{
+
+.mx-2,
+.post-number,
+.like-form,
+.like-counter,
+.post-content {
   color: black;
 }
 
 .mx-2:hover,
- .post-number:hover,
-  .like-form:hover,
-  .like-counter:hover,
-  .post-content :hover {
+.post-number:hover,
+.like-form:hover,
+.like-counter:hover,
+.post-content :hover {
   color: rgba(46, 126, 160, 0.975);
   text-decoration: none;
 }
