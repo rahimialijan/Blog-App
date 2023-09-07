@@ -1,12 +1,10 @@
 class PostsController < ApplicationController
   def index
-    @user = User.find(params[:user_id])
-    @post = @user.posts.includes(:comments, :likes).order(created_at: :asc)
+    @user = User.includes(:posts).find(params[:user_id])
   end
 
   def show
-    @user = User.find(params[:user_id])
-    @post = @user.posts.find(params[:id])
+    @post = User.includes(posts: [:author]).find(params[:user_id]).posts.find(params[:id])
   end
 
   def new
@@ -24,6 +22,16 @@ class PostsController < ApplicationController
       redirect_to user_post_path(@user.id, @post.id), notice: 'Post was successfully created'
     else
       render :new
+    end
+  end
+
+  def destroy
+    @post = Post.find(params[:id])
+    authorize! :destroy, @post # Check authorization
+    if @post.destroy
+      redirect_to user_posts_path(current_user), notice: 'Post was successfully deleted.'
+    else
+      redirect_to user_posts_path(current_user), alert: 'Unable to delete the post.'
     end
   end
 

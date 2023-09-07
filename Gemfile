@@ -9,6 +9,7 @@ gem 'rake', '~> 13.0'
 gem 'rails-controller-testing'
 gem 'rubocop', '>= 1.0', '< 2.0'
 
+gem 'cancancan', '~> 3.5'
 gem 'factory_bot_rails'
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"

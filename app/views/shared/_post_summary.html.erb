@@ -1,10 +1,12 @@
+
+
 <div class="container d-flex flex-column justify-content-center align-items-center bg-light border rounded py-4 post_summary post-content">
-  <%= link_to user_post_path(post.author.id, post.id) do %>
-    <h2>Post # <%= post.user_post_sequence %> </h2>
+  <%= link_to user_post_path(post.author.id, post.id) do %>    
+    <h2 class="post-number" >Post # <%= post.user_post_sequence %> </h2>
+    <p class="post-content"><%= truncate(post.text, length: 250, omission: "...") %></p>
   <% end %>
-  <p><%= truncate(post.text, length: 250, omission: "...") %></p>
   <div class="d-flex align-self-end">
-    <p class="mx-2"><%= link_to new_user_post_comment_path(user_id: post.author_id, post_id: post.id) do %>Comments: <%= post.comments.count || 0 %><% end %></p>
+    <p class="mx-2">Comments: <%= post.comments.count || 0 %></p>
     <p class="mx-2">
       <%= form_for([post, post.likes.build], url: user_post_likes_path(post.author, post), method: :post, html: { class: 'like-form' }) do |form| %>
         <%= form.submit "Like" %>
@@ -12,4 +14,14 @@
     </p>
     <span class="like-counter"><%= post.likes_counter || 0 %></span>
   </div>
+  <div class="align-self-end">
+  <% if can? :destroy, post %>
+  <%= link_to "Delete Post", user_post_path(current_user, post), method: :delete, data: {
+                    turbo_method: :delete,
+                      turbo_confirm: "Are you sure?"
+                    }, class: "delete-post-link" %>
+  <%end%>
+  
+  </div>
 </div>
+

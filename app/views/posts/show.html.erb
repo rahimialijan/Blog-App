@@ -7,4 +7,7 @@
       <%= render partial: 'shared/recent_comments', locals: { comment: comment } %>
     <% end %>
   </div>
+  <div class="container card", style="width: 18rem;">
+      <%= render partial: 'comments/comments',  post:@post %>
+  </div>
 </section>

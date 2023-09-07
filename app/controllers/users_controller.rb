@@ -15,6 +15,7 @@ class UsersController < DeviseController
       redirect_to new_user_session_path
     else
       @user = User.includes(:posts).find(params[:id])
+      @recent_posts = @user.recent_posts
     end
   end
 end
